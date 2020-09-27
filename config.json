@@ -1,0 +1,43 @@
+{
+  "description": "Docker volume plugin for mounting DigitalOcean block storage",
+  "documentation": "https://github.com/Arechii/docker-dobs-volume",
+  "workdir": "/app",
+  "entrypoint": ["npm", "start"],
+  "env": [
+    {
+      "name": "DO_TOKEN",
+      "settable": ["value"]
+    },
+    {
+      "name": "DO_REGION",
+      "settable": ["value"]
+    }
+  ],
+  "interface": {
+    "socket": "dobs.sock",
+    "types": ["docker.volumedriver/1.0"]
+  },
+  "linux": {
+    "allowAllDevices": true,
+    "capabilities": ["CAP_SYS_ADMIN"],
+    "devices": null
+  },
+  "mounts": [
+    {
+      "destination": "/mnt/state",
+      "source": "/var/lib/docker/plugins/",
+      "options": ["rbind"],
+      "type": "bind"
+    },
+    {
+      "destination": "/dev",
+      "source": "/dev",
+      "options": ["rbind"],
+      "type": "bind"
+    }
+  ],
+  "network": {
+    "type": "host"
+  },
+  "propagatedmount": "/mnt/volumes"
+}

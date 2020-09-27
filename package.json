@@ -1,0 +1,36 @@
+{
+  "name": "docker-dobs-volume",
+  "version": "1.0.0",
+  "description": "Docker volume plugin for mounting DigitalOcean block storage",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "cd build && node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arechii/docker-dobs-volume.git"
+  },
+  "keywords": [
+    "docker",
+    "volume",
+    "driver",
+    "dobs"
+  ],
+  "author": "Arechii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arechii/docker-dobs-volume/issues"
+  },
+  "homepage": "https://github.com/Arechii/docker-dobs-volume#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.6.4",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "express": "^4.17.1"
+  }
+}
